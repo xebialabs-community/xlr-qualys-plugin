@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+ Copyright 2019 XEBIALABS
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+    <type type="qualys.Server" extends="configuration.HttpConnection" label="Qualys: Server">
+        <property name="authenticationMethod" kind="enum" enum-class="com.xebialabs.xlrelease.domain.configuration.HttpConnection$AuthenticationMethod"
+                  hidden="true" default="Basic"/>
+        <property name="domain" hidden="true" default="NOTUSED"/>
+    </type>
+
+    <type type="qualys.Task" extends="xlrelease.PythonScript" virtual="true">
+        <property name="iconLocation" hidden="true" default="qualys/qualys.png"/>
+        <property name="taskColor" hidden="true" default="#E90000"/>
+        <property name="server" category="input" required="true" referenced-type="qualys.Server" kind="ci"/>
+        <property name="username" category="input" required="false"
+                  description="Optionally, override the username used to connect to the server"/>
+        <property name="password" category="input" password="true" required="false"
+                  description="Optionally, override the password used to connect to the server"/>
+    </type>
+
+    <type type="qualys.CheckCompliance" extends="qualys.Task" label="Qualys: Check Compliance">
+        <property name="registry" category="input" description="Docker registry for the image (e.g. docker.io)" />
+        <property name="repository" category="input" description="Docker repository path for the image (e.g. myorg/ubuntu)" />
+        <property name="tag" category="input" description="Docker repository path for the image (e.g. 18.04)" />
+        <property name="checkCount" category="input" required="true" kind="boolean" default="true" description="Optionally, enable a limit on vulnerabilities count" />
+        <property name="count" category="input" required="false" kind="integer" description="If enabled, provide the maximum permitted count of vulnerabilities" />
+        <property name="checkSeverity" category="input" required="true" kind="boolean" default="true" description="Optionally, enable a limit on the severity of vulnerabilities" />
+        <property name="severity" category="input" required="false" kind="integer"
+                  description="If enabled, provide a maximum permitted severity for vulnerabilities (0 to 5 scale).
+                  A value of 0 means vulnerabilities are not permitted at any level, and a value of 5 means all severity levels are permitted." />
+    </type>
+
+    <type type="qualys.Tile" extends="xlrelease.Tile" virtual="true">
+        <property default="release,folder,global" hidden="true" name="supportedScopes" kind="list_of_string"/>
+        <property name="server" category="input" required="true" referenced-type="qualys.Server" kind="ci"/>
+        <property name="username" category="input" required="false"
+                  description="Optionally, override the username used to connect to the server"/>
+        <property name="password" category="input" password="true" required="false"
+                  description="Optionally, override the password used to connect to the server"/>
+    </type>
+
+    <type type="qualys.VulnerabilitiesTrend" label="Qualys Vulnerabilities Trend" extends="qualys.Tile"
+          description="Shows the vulnerability trends for images in the Container Security module">
+        <property name="uri" hidden="true" default="VulnerabilitiesTrend/summary-view.html"/>
+        <property name="title" description="Tile title" default="Vulnerabilities Trend"/>
+        <property name="width" kind="integer" default="4"/>
+        <property name="height" kind="integer" default="3"/>
+        <property name="imageFilter" label="Filter" category="input" required="false" size="large"
+                  description="Only include images which match the filter.  This is the same filter syntax as in
+                  the Qualys GUI when searching/filtering images in the Container Security module.  Consider the
+                  example &quot;repo.registry:docker.io and repo.repository:myorg/ubuntu and repo.tag:18.04&quot;.
+                  If this property is left blank, no filter will be applied."/>
+        <property name="sortableToken" category="input" required="true" default="created"
+                  description="Sort the images using this sortable token for images.  Consult the Qualys documentation
+                  on valid sortable tokens."/>
+        <property name="sortOrder" category="input" kind="enum" required="true" default="descending">
+            <enum-values>
+                <value>descending</value>
+                <value>ascending</value>
+            </enum-values>
+        </property>
+        <property name="count" category="input" kind="integer" required="true"
+                  description="Count of results to plot.  The maximum is 50."/>
+    </type>
+
+    <type type="qualys.VulnerabilitiesSummary" label="Qualys Vulnerabilities Summary" extends="qualys.Tile"
+          description="Shows the vulnerabilities summary for an image in the Container Security module">
+        <property name="uri" hidden="true" default="VulnerabilitiesSummary/summary-view.html"/>
+        <property name="title" description="Tile title" default="Vulnerabilities Summary"/>
+        <property name="width" kind="integer" default="1"/>
+        <property name="height" kind="integer" default="3"/>
+        <property name="registry" category="input" description="Docker registry for the image (e.g. docker.io)" />
+        <property name="repository" category="input" description="Docker repository path for the image (e.g. myorg/ubuntu)" />
+        <property name="tag" category="input" description="Docker repository path for the image (e.g. 18.04)" />
+    </type>
+
+</synthetic>

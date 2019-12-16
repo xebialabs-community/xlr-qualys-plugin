@@ -1,0 +1,32 @@
+.table-xtra-condensed>thead>tr>th,
+.table-xtra-condensed>tbody>tr>th,
+.table-xtra-condensed>tfoot>tr>th,
+.table-xtra-condensed>thead>tr>td,
+.table-xtra-condensed>tbody>tr>td,
+.table-xtra-condensed>tfoot>tr>td {
+    padding: 2px;
+}
+
+.col-metadata-icon {
+    padding: 0px;
+}
+
+.metadata-icon {
+    max-height: 3em;
+    max-width: 3em;
+    margin: 0 auto;
+}
+
+.icon-centered {
+    text-align: center;
+}
+
+#vulnerabilities {
+    margin: 16px 0 0 0;
+}
+
+.summary-row {
+    font-size: 75%;
+    max-width: 100%;
+    margin: 0px;
+}

@@ -1,0 +1,14 @@
+plugins {
+  id "nebula.release" version "13.2.1"
+  id "java"
+}
+
+defaultTasks "build"
+
+if (!project.hasProperty('release.scope')) {
+  project.ext['release.scope'] = 'patch'
+}
+
+if (!project.hasProperty('release.useLastTag')) {
+  project.ext['release.useLastTag'] = true
+}
