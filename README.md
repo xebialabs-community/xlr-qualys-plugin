@@ -19,7 +19,7 @@ The gradle wrapper facilitates building the plugin.  Use the following command t
 ```bash
 ./gradlew clean build
 ```
-The built plugin, along with other files from the build, can then be found in the _build_ folder.  This plugin leverages [nebula.release](https://github.com/nebula-plugins/nebula-release-plugin).  The default values for `release.scope` and `release.useLastTag` are `'patch'` and `true`, respectively.
+The built plugin, along with other files from the build, can then be found in the _build_ folder.
 
 ### Adding the plugin to XL Release
 
