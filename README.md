@@ -1,5 +1,6 @@
 # Qualys Integration for XL Release
 
+[![Build Status](https://travis-ci.org/xebialabs-community/xlr-qualys-plugin.svg?branch=master)](https://travis-ci.org/xebialabs-community/xlr-qualys-plugin)
 ![GitHub release](https://img.shields.io/github/release/xebialabs-community/xlr-qualys-plugin.svg)
 [![License: MIT][xlr-qualys-plugin-license-image]][xlr-qualys-plugin-license-url]
 [![Github All Releases][xlr-qualys-plugin-downloads-image]][xlr-qualys-plugin-releases-url]
