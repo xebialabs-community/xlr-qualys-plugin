@@ -26,11 +26,9 @@ Download the latest version of the plugin from the [releases page][xlr-qualys-pl
 
 ### Configuration
 
-The Qualys server can be configured at a global level, in _Shared Configuration_, or on a finer lever (e.g. at the folder level).  Please refer to [the docs.xebialabs.com documentation on configurations](https://docs.xebialabs.com/xl-release/how-to/create-custom-configuration-types.html#configuration-page).  Qualys uses Basic Authentication for all API requests.  As such, the Basic Authenitcation server configurationThe Qualys server configuration page in XL Release is simple
+The Qualys server can be configured at a global level, in _Shared Configuration_, or on a finer lever (e.g. at the folder level).  Please refer to [the docs.xebialabs.com documentation on configurations](https://docs.xebialabs.com/xl-release/how-to/create-custom-configuration-types.html#configuration-page).  Qualys uses Basic Authentication for all API requests, so the standard authentication selection dropdown is not provided on the XL Release server configuration page.
 
 ## Usage
-
-Tasks included in this plugin:
 
 ### Tasks
 
