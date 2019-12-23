@@ -27,7 +27,7 @@
                   description="Optionally, override the password used to connect to the server"/>
     </type>
 
-    <type type="qualys.CheckCompliance" extends="qualys.Task" label="Qualys: Check Compliance">
+    <type type="qualys.ContainerCheckCompliance" extends="qualys.Task" label="Qualys: Check Compliance (Container Security Module)">
         <property name="registry" category="input" description="Docker registry for the image (e.g. docker.io)" />
         <property name="repository" category="input" description="Docker repository path for the image (e.g. myorg/ubuntu)" />
         <property name="tag" category="input" description="Docker repository path for the image (e.g. 18.04)" />
@@ -48,9 +48,9 @@
                   description="Optionally, override the password used to connect to the server"/>
     </type>
 
-    <type type="qualys.VulnerabilitiesTrend" label="Qualys Vulnerabilities Trend" extends="qualys.Tile"
+    <type type="qualys.ContainerVulnerabilitiesTrend" label="Qualys Vulnerabilities Trend (Container Security Module)" extends="qualys.Tile"
           description="Shows the vulnerability trends for images in the Container Security module">
-        <property name="uri" hidden="true" default="VulnerabilitiesTrend/summary-view.html"/>
+        <property name="uri" hidden="true" default="container-security/vulnerabilities-trend.html"/>
         <property name="title" description="Tile title" default="Vulnerabilities Trend"/>
         <property name="width" kind="integer" default="4"/>
         <property name="height" kind="integer" default="3"/>
@@ -62,19 +62,19 @@
         <property name="sortableToken" category="input" required="true" default="created"
                   description="Sort the images using this sortable token for images.  Consult the Qualys documentation
                   on valid sortable tokens."/>
-        <property name="sortOrder" category="input" kind="enum" required="true" default="descending">
+        <property name="sortOrder" category="input" kind="enum" required="true" default="ascending">
             <enum-values>
                 <value>descending</value>
                 <value>ascending</value>
             </enum-values>
         </property>
-        <property name="count" category="input" kind="integer" required="true"
+        <property name="count" category="input" kind="integer" default="50" required="true"
                   description="Count of results to plot.  The maximum is 50."/>
     </type>
 
-    <type type="qualys.VulnerabilitiesSummary" label="Qualys Vulnerabilities Summary" extends="qualys.Tile"
+    <type type="qualys.ContainerVulnerabilitiesSummary" label="Qualys Vulnerabilities Summary (Container Security Module)" extends="qualys.Tile"
           description="Shows the vulnerabilities summary for an image in the Container Security module">
-        <property name="uri" hidden="true" default="VulnerabilitiesSummary/summary-view.html"/>
+        <property name="uri" hidden="true" default="container-security/vulnerabilities-summary.html"/>
         <property name="title" description="Tile title" default="Vulnerabilities Summary"/>
         <property name="width" kind="integer" default="1"/>
         <property name="height" kind="integer" default="3"/>
