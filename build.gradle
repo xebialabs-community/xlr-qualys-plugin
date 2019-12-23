@@ -1,9 +1,7 @@
 plugins {
-  id 'nebula.release' version '13.2.1'
   id 'org.ajoberstar.grgit' version '4.0.0'
   id 'java'
 }
 
-if (!project.hasProperty('release.useLastTag')) {
-    project.ext['release.version'] = grgit.tag.list()[-1].getName()
-}
+def latestTag = grgit.tag.list()[-1]
+project.version = project.findProperty('pluginVersion') ?: latestTag.getName().minus("v")
