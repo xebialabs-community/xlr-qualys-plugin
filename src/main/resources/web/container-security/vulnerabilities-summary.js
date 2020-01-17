@@ -39,12 +39,12 @@ window.addEventListener("xlrelease.load", function() {
             </svg>
         </div>
         `;
-        document.getElementById("registry").innerHTML = "Registry:<br>" + data.image["registry"]
-        document.getElementById("repository").innerHTML = "Repository:<br>" + data.image["repository"]
-        document.getElementById("tag").innerHTML = "Tag:<br>" + data.image["tag"]
-        document.getElementById("created").innerHTML = "Creation Datetime:<br>" + new Date(Number(data.created)).toISOString();
-        document.getElementById("lastScanned").innerHTML = "Last Checked:<br>" + new Date(Number(data.lastScanned)).toISOString();
-        document.getElementById("total").innerHTML = "Vulnerabilities:<br>" + data.counts["Total"];
+        document.getElementById("registry").innerHTML = "<span style=\"font-weight: bold;\">Registry</span><br>" + data.image["registry"]
+        document.getElementById("repository").innerHTML = "<span style=\"font-weight: bold;\">Repository</span><br>" + data.image["repository"]
+        document.getElementById("tag").innerHTML = "<span style=\"font-weight: bold;\">Tag</span><br>" + data.image["tag"]
+        document.getElementById("created").innerHTML = "<span style=\"font-weight: bold;\">Creation Datetime</span><br>" + new Date(Number(data.created)).toISOString();
+        document.getElementById("lastScanned").innerHTML = "<span style=\"font-weight: bold;\">Last Checked</span><br>" + new Date(Number(data.lastScanned)).toISOString();
+        document.getElementById("total").innerHTML = "<span style=\"font-weight: bold;\">Vulnerabilities</span><br>" + data.counts["Total"];
         for (var severity of Object.keys(data.counts)) {
             document.getElementById("vulnerabilities").innerHTML += `
                 <tr><td>${severity}</td><td>${data.counts[severity]}</td></tr>

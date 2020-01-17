@@ -22,11 +22,17 @@
 }
 
 #vulnerabilities {
-    margin: 16px 0 0 0;
+    margin: 12px 0;
 }
 
 .summary-row {
+    font-family: OpenSans, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 75%;
     max-width: 100%;
     margin: 0px;
+}
+
+.break {
+    width:100%;
+    margin: 6px 0px;
 }
