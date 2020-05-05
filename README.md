@@ -40,6 +40,7 @@ The intended use case here is automated vulnerability gating.  Total vulnerabili
 ### Dashboard Tiles
 
 ![Dashboard Tiles](images/qualys-dashboard.png)
+![Vulnerability Density Tile](images/vulnerability-density.png)
 
 #### Vulnerabilities Summary
 
