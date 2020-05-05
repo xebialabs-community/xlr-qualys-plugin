@@ -49,7 +49,7 @@ window.addEventListener("xlrelease.load", function() {
                             children: childNode !== 'tag' ? getChildren(currentData[childNode], childNode, nodeClick) : []
                         })
                     }
-                    return p;
+                    return p.sort((a, b) => customSort(a.name, b.name));
                 }, [])
         }
 
