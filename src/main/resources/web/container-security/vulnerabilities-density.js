@@ -187,7 +187,7 @@ window.addEventListener("xlrelease.load", function() {
                 const averageText = `<br/><u>Average Vulnerabilities:</u><br/>`;
                 const vulsAverages = allKeys.reduce((p, c) => {
                     const average = allVuls[c] / childrenCount;
-                    return p + `&nbsp;${SEVERITIES[c]}: ${average} </br>`
+                    return p + `&nbsp;${SEVERITIES[c]}: ${average.toFixed(2)} </br>`
                 }, '');
                 const averageTotal = `<br/>Average Total: ${(params.data.value / childrenCount).toFixed(2)}`;
                 return label + tagCount + averageText + vulsAverages + averageTotal;
