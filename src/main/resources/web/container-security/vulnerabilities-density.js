@@ -111,11 +111,13 @@ window.addEventListener("xlrelease.load", function() {
                         },
                         {
                             label: {
+                                color: 'black',
                                 rotate: 'tangential'
                             },
                         },
                         {
                             label: {
+                                color: 'black',
                                 rotate: 'radial'
                             },
                         }
