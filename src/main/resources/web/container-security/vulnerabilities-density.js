@@ -93,9 +93,9 @@ window.addEventListener("xlrelease.load", function() {
                     type: 'sunburst',
                     highlightPolicy: 'descendant',
                     data: getMappedData('repository', 'rootToNode', true),
-                    radius: ['30%', '90%'],
+                    radius: ['25%', '100%'],
                     label: {
-                        fontSize: 15,
+                        fontSize: 13,
                         fontWeight: 500
                     },
                     levels: [{
@@ -112,6 +112,7 @@ window.addEventListener("xlrelease.load", function() {
                         {
                             label: {
                                 color: 'black',
+                                fontSize: 14,
                                 rotate: 'tangential'
                             },
                         },
@@ -127,11 +128,11 @@ window.addEventListener("xlrelease.load", function() {
                     type: 'sunburst',
                     highlightPolicy: 'descendant',
                     data: getMappedData('registry', false, false),
-                    radius: ['0%', '30%'],
+                    radius: ['0%', '25%'],
                     label: {
                         rotate: 'tangential',
-                        fontSize: 16,
-                        fontWeight: 'bold'
+                        fontSize: 15,
+                        fontWeight: 700
                     },
                     levels: [{},
                         {
